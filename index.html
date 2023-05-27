@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katik by ranggabiner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="data.js">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Paralax JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="parallax.js/parallax.js-1.5.0/parallax.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Add these lines to include Swiper CSS and JS files -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="parallax-window" data-parallax="scroll" data-image-src="./img/gifmtk.gif">
+        <nav>
+            <!-- script untuk nav -->
+            <script>
+                window.addEventListener('scroll', function () {
+                    var nav = document.querySelector('nav');
+                    var logojkt = document.querySelector('.logojkt');
+                    var btnSignUp = document.querySelector('.btn-sign-up')
+
+                    if (window.scrollY > 0) {
+                        nav.classList.add('sticky');
+                        logojkt.setAttribute('src', 'img/logoranggabiner.png')
+                        btnSignUp.classList.add('scroll')
+                    } else {
+                        nav.classList.remove('sticky');
+                        logojkt.removeAttribute('src', 'img/logoranggabiner.png')
+                        logojkt.setAttribute('src', 'img/logoranggabiner.png')
+                        btnSignUp.classList.remove('scroll')
+                    }
+                });
+            </script>
+
+            <!-- logo -->
+            <div class="logo">
+                <a class="linklogojkt" href="index.html"><img class="logojkt" src="img/logoranggabiner.png"
+                        alt=""></a>
+            </div>
+            <!-- button sign up -->
+            <a href="#" class="btn-sign-up">Hai Kamu</a>
+        </nav>
+
+        <!-- tanggal -->
+        <div class="header-title text-putih">KATIK</div> </span>
+        <div class="header-bottom">
+            <p class="today-date " id="tanggal"></p>
+            <script>
+                var now = new Date();
+                var tanggal = now.getDate();
+                var bulan = now.getMonth() + 1;
+                var tahun = now.getFullYear();
+                document.getElementById("tanggal").innerHTML = tanggal + " / " + bulan + " / " + tahun;
+            </script>
+
+            <!-- sosmed icon -->
+            <ul class="social-media">
+                <div class="icons_container">
+                    <div class="icon facebook">
+                        <div class="tooltip">
+                            Facebook
+                        </div>
+                        <a href="https://www.facebook.com/ranggahadi.putra.52/"><span><i class="fab fa-facebook-f"></i></span></a>
+                    </div>
+                    <div class="icon twitter">
+                        <div class="tooltip">
+                            Twitter
+                        </div>
+                        <a href="https://twitter.com/ranggabiner"><span><i class="fab fa-twitter"></i></span></a>
+                    </div>
+                    <div class="icon instagram">
+                        <div class="tooltip">
+                            Instagram
+                        </div>
+                        <a href="https://www.instagram.com/ranggabiner/"><span><i
+                                    class="fab fa-instagram"></i></span></a>
+                    </div>
+                    <div class="icon youtube">
+                        <div class="tooltip">
+                            YouTube
+                        </div>
+                        <a href="https://www.youtube.com/@ranggabiner/"><span><i class="fab fa-youtube"></i></span></a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+
+    <!-- container 1 -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-info">
+                <h1 style="font-size: 2rem;">Persegi</h1> <br>
+            </div>
+            <div>
+                <lottie-player class="square" src="https://assets3.lottiefiles.com/packages/lf20_3bsmiblm.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                </lottie-player>
+            </div>
+
+            <div class="about-info luasPersegi">
+                <h1>Kalkulator Luas Persegi</h1>
+                <label for="sisi">Masukkan ukuran sisi:</label>
+                <br>
+                <input type="number" id="sisiLuasPersegi">
+                <br>
+                <button class="hasil-reset" onclick="hitungLuasPersegi()">Hasilkan</button>
+                <br>
+                    <div  id="rumusLuasPersegi"></div>
+                    <div  id="nilaiRumusLuasPersegi"></div>
+                    <div  id="hasilLuasPersegi"></div>
+                <!-- reset -->
+                <button class="btn-reset" onclick="resetHitungLuasPersegi()">Reset</button>
+            </div>
+
+            <div class="about-info kelilingPersegi">
+                <h1>Kalkulator Keliling Persegi</h1>
+                <label for="sisi">Masukkan ukuran sisi:</label>
+                <br>
+                <input type="number" id="sisiKelilingPersegi">
+                <br>
+                <button class="hasil-reset" onclick="hitungKelilingPersegi()">Hasilkan</button>
+                <br>
+                <div id="rumusKelilingPersegi"></div>
+                <div id="nilaiRumusKelilingPersegi"></div>
+                <div id="hasilKelilingPersegi"></div>
+                <!-- reset -->
+                <button class="btn-reset" onclick="resetHitungKelilingPersegi()">Reset</button>
+
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- container 2 -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-info">
+                <h1 style="font-size: 2rem;">Persegi Panjang</h1>
+            </div>
+            <div>
+                <lottie-player class="rectangle" src="https://assets3.lottiefiles.com/packages/lf20_Xu1h7MVCqm.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                </lottie-player>
+            </div>
+            <div class="about-info luasPersegiPanjang">
+                <h1>Luas Persegi Panjang</h1>
+                <label for="panjang">Masukkan ukuran panjang:</label>
+                <br>
+                <input type="number" id="panjangLuasPersegiPanjang">
+                <br>
+                <label for="lebar">Masukkan ukuran lebar:</label>
+                <br>
+                <input type="number" id="lebarLuasPersegiPanjang">
+                <br>
+                <button class="hasil-reset" onclick="hitungLuasPersegiPanjang()">Hasilkan</button>
+                <br>
+                <div id="rumusLuasPersegiPanjang"></div>
+                <div id="nilaiRumusLuasPersegiPanjang"></div>
+                <div id="hasilLuasPersegiPanjang"></div>
+                <!-- reset -->
+                <button class="btn-reset" onclick="resetHitungLuasPersegiPanjang()">Reset</button>
+                
+            </div>
+
+            <div class="about-info kelilingPersegiPanjang">
+                <h1> Keliling Persegi Panjang</h1>
+                <label for="panjang">Masukkan ukuran panjang:</label>
+                <br>
+                <input type="number" id="panjangKelilingPersegiPanjang">
+                <br>
+                <label for="lebar">Masukkan ukuran lebar:</label>
+                <br>
+                <input type="number" id="lebarKelilingPersegiPanjang">
+                <br>
+                <button class="hasil-reset" onclick="hitungKelilingPersegiPanjang()">Hasilkan</button>
+                <br>
+                <div id="rumusKelilingPersegiPanjang"></div>
+                <div id="nilaiRumusKelilingPersegiPanjang"></div>
+                <div id="hasilKelilingPersegiPanjang"></div>
+                <!-- reset -->
+                <button class="btn-reset" onclick="resetHitungKelilingPersegiPanjang()">Reset</button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <hr>
+
+
+    <!-- LOTTIE -->
+    <lottie-player class="burung-hantu" src="https://assets9.lottiefiles.com/packages/lf20_PBgNop.json"
+        background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+    </lottie-player>
+
+
+
+
+    <!-- Footer -->
+
+    <footer>
+        <p>Copyright &copy; 2023 by <a class="ranggabiner" href="http://instagam.com/ranggabiner">@ranggabiner </a> <i
+                class="fa fa-heart"></i></p>
+    </footer>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+    <!-- Script Lottie -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+</body>
+
+
+
+</html>
